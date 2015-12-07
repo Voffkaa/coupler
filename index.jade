@@ -30,7 +30,8 @@ html(lang="en")
 
         script#result(type="text/template")
             .col-md-1 Step: <%= stepsNumber %>
-            .col-md-8 <%= result %>
+            .col-md-8
+                .resultValue <%= result %>
 
     body
 
@@ -51,6 +52,8 @@ html(lang="en")
             .row
                 .col-md-9.text-center Result
             .row#resultValue
-
-            button.btn.btn-primary#runStep Step
+            .row
+                button.btn.btn-primary#runStep Step
+                button.btn.btn-success#startRun Start
+                button.btn.btn-danger#stopRun Stop
 

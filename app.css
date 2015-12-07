@@ -5,3 +5,7 @@
 .registerValue {
     text-align: center;
 }
+
+.resultValue {
+    word-wrap: break-word;
+}

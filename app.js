@@ -26,13 +26,13 @@ $(document).ready(function() {
             r.unshift(newR0);
             r.pop();
 
-            console.log("Step: %s, XOR(r[5],r[9]): %s, r[0]: %s", i, xor, r[0]);
+            //console.log("Step: %s, XOR(r[5],r[9]): %s, r[0]: %s", i, xor, r[0]);
 
             this.set('stepsNumber', i + 1);
             this.set('result', nextSymbol + result);
             this.set('r', r);
 
-            console.log("Step: %s, result: %s", i, this.get('result'));
+            //console.log("Step: %s, result: %s", i, this.get('result'));
 
         }
 
@@ -86,9 +86,25 @@ $(document).ready(function() {
     $('#registersValues').append(app.registersView.render().el);
     $('#resultValue').append(app.resultView.render().el);
 
+    var intervalId;
+
     $('#runStep').click(function() {
 
         app.data.runStep();
+
+    });
+
+    $('#startRun').click(function() {
+
+        intervalId = setInterval(function() {
+            app.data.runStep();
+        }, 200);
+
+    });
+
+    $('#stopRun').click(function() {
+
+        clearInterval(intervalId);
 
     });
 
