@@ -1,0 +1,56 @@
+doctype html
+html(lang="en")
+
+    head
+
+        meta(charset="utf8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0, user-scalable=no")
+
+        title Coupler
+
+        link(href="bootstrap.min.css" rel="stylesheet")
+        link(href="app.css" rel="stylesheet")
+
+        script(type="text/javascript" src="jquery.min.js")
+        script(type="text/javascript" src="underscore.min.js")
+        script(type="text/javascript" src="backbone.min.js")
+
+        script(type="text/javascript" src="app.js")
+
+        script#registers(type="text/template")
+            .col-md-1.registerValue <%= r[0] %>
+            .col-md-1.registerValue <%= r[1] %>
+            .col-md-1.registerValue <%= r[2] %>
+            .col-md-1.registerValue <%= r[3] %>
+            .col-md-1.registerValue <%= r[4] %>
+            .col-md-1.registerValue <%= r[5] %>
+            .col-md-1.registerValue <%= r[6] %>
+            .col-md-1.registerValue <%= r[7] %>
+            .col-md-1.registerValue <%= r[8] %>
+
+        script#result(type="text/template")
+            .col-md-1 Step: <%= stepsNumber %>
+            .col-md-8 <%= result %>
+
+    body
+
+        .container
+            .row
+                .col-md-9.text-center Registers
+            .row
+                .col-md-1.registerName R1
+                .col-md-1.registerName R2
+                .col-md-1.registerName R3
+                .col-md-1.registerName R4
+                .col-md-1.registerName R5
+                .col-md-1.registerName R6
+                .col-md-1.registerName R7
+                .col-md-1.registerName R8
+                .col-md-1.registerName R9
+            .row#registersValues
+            .row
+                .col-md-9.text-center Result
+            .row#resultValue
+
+            button.btn.btn-primary#runStep Step
+
