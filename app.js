@@ -34,6 +34,14 @@ $(document).ready(function() {
 
             //console.log("Step: %s, result: %s", i, this.get('result'));
 
+        },
+
+        resetToDefaults: function() {
+
+            this.set('stepsNumber', 0);
+            this.set('result', '');
+            this.set('r', [1,1,1,1,1,1,1,1,1]);
+            
         }
 
     });
@@ -100,11 +108,22 @@ $(document).ready(function() {
             app.data.runStep();
         }, 200);
 
+        $('#startRun').prop('disabled', true);
+        $('#stopRun').prop('disabled', false);
+
     });
 
     $('#stopRun').click(function() {
 
         clearInterval(intervalId);
+        $('#startRun').prop('disabled', false);
+        $('#stopRun').prop('disabled', true);
+
+    });
+
+    $('#reset').click(function() {
+
+        app.data.resetToDefaults();
 
     });
 
